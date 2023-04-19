@@ -1,0 +1,53 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+    "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+ 
+<svg width="100%" height="100%" version="1.1"
+    xmlns="http://www.w3.org/2000/svg">
+
+<defs>
+    <radialGradient id="gradient">
+      <stop offset="0%" stop-color="blue" />
+      <stop offset="50%" stop-color="red" />
+      <stop offset="90%" stop-color="blue" />
+      <stop offset="100%" stop-color="red" />
+    </radialGradient>
+    <filter id="blur">
+        <feGaussianBlur stdDeviation="2" />
+    </filter>
+</defs>
+
+<rect width="400" height="400" style="fill:rgb(122,122,122)"/>
+
+<circle cx="200" cy="200" r="148" stroke="black" stroke-width="2"
+    fill="url(#gradient)" filter="url(#blur)"/>
+
+<path d="
+    M 180 170
+    C 180 130, 120 130, 120 170
+    L 120 230
+    C 120 270, 180 270, 180 230
+    L 180 200
+    L 140 200
+    L 140 210
+    L 170 210
+    L 170 230
+    C 170 256, 130 256, 130 230
+    L 130 170
+    C 130 144, 170 144, 170 170
+    Z
+" stroke="black" fill="white"/>
+
+<path d="
+    M 280 170
+    C 280 130, 220 130, 220 170
+    C 220 200, 270 200, 270 230
+    C 270 257, 230 257, 230 230
+    L 220 230
+    C 220 270, 280 270, 280 230
+    C 280 195, 230 195, 230 170
+    C 230 143, 270 143, 270 170
+    Z
+" stroke="black" fill="white"/>
+
+</svg>
