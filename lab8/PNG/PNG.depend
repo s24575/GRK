@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1682508050 source:c:\msys64\home\s24575\png\writepng.c
+	<stdlib.h>
+	<stdio.h>
+	<stdarg.h>
+	<png.h>
+
