@@ -158,7 +158,7 @@ void rasterize_line(int x1, int y1, int x2, int y2, png_byte cr, png_byte cg, pn
         write_pixel(x1, y1, cr, cg, cb);
         int x = x1;
         int P = y2 - y1;
-        for(int y = y1 + 1; y < y2; y++){
+        for(int y = y1 + 1; y <= y2; y++){
             b += m;
             if(b > P){
                 x++;
@@ -172,7 +172,7 @@ void rasterize_line(int x1, int y1, int x2, int y2, png_byte cr, png_byte cg, pn
         write_pixel(x1, y1, cr, cg, cb);
         int x = x1;
         int P = -y2 + y1;
-        for(int y = y1 + 1; -y <= -y2; y--){
+        for(int y = y1; -y <= -y2; y--){
             b += m;
             if(b > P){
                 x++;
@@ -206,15 +206,45 @@ void process_file(void)
 		png_byte* row = row_pointers[y];
 		for (x=0; x<width; x++) {
 			png_byte* ptr = &(row[x*3]);
-			ptr[0] = 0;
-			ptr[1] = ptr[2] = 255;
+			ptr[0] = ptr[1] = ptr[2] = 122;
 		}
 	}
 
-	rasterize_line(100, 200, 400, 100, 255, 0, 0);
-	rasterize_line(100, 200, 400, 300, 255, 0, 0);
-	rasterize_line(100, 200, 200, 400, 255, 0, 0);
-	rasterize_line(100, 200, 200, 0, 255, 0, 0);
+    // G
+    rasterize_line(170, 160, 180, 170, 0, 0, 0);
+    rasterize_line(130, 160, 170, 160, 0, 0, 0);
+    rasterize_line(120, 170, 130, 160, 0, 0, 0);
+    rasterize_line(120, 230, 120, 170, 0, 0, 0);
+    rasterize_line(120, 230, 120, 170, 0, 0, 0);
+    rasterize_line(120, 230, 130, 240, 0, 0, 0);
+    rasterize_line(130, 240, 170, 240, 0, 0, 0);
+    rasterize_line(170, 240, 180, 230, 0, 0, 0);
+    rasterize_line(180, 230, 180, 200, 0, 0, 0);
+    rasterize_line(140, 200, 180, 200, 0, 0, 0);
+    rasterize_line(140, 200, 140, 210, 0, 0, 0);
+    rasterize_line(140, 210, 170, 210, 0, 0, 0);
+    rasterize_line(170, 210, 170, 230, 0, 0, 0);
+    rasterize_line(130, 230, 170, 230, 0, 0, 0);
+    rasterize_line(130, 170, 130, 230, 0, 0, 0);
+    rasterize_line(130, 170, 180, 170, 0, 0, 0);
+
+    // S
+    rasterize_line(270, 160, 280, 170, 0, 0, 0);
+    rasterize_line(230, 160, 270, 160, 0, 0, 0);
+    rasterize_line(220, 170, 230, 160, 0, 0, 0);
+    rasterize_line(220, 170, 220, 195, 0, 0, 0);
+    rasterize_line(220, 195, 230, 205, 0, 0, 0);
+    rasterize_line(230, 205, 270, 205, 0, 0, 0);
+    rasterize_line(270, 205, 270, 230, 0, 0, 0);
+    rasterize_line(220, 230, 270, 230, 0, 0, 0);
+    rasterize_line(220, 230, 230, 240, 0, 0, 0);
+    rasterize_line(230, 240, 270, 240, 0, 0, 0);
+    rasterize_line(270, 240, 280, 230, 0, 0, 0);
+    rasterize_line(280, 230, 280, 205, 0, 0, 0);
+    rasterize_line(270, 195, 280, 205, 0, 0, 0);
+    rasterize_line(230, 195, 270, 195, 0, 0, 0);
+    rasterize_line(230, 195, 230, 170, 0, 0, 0);
+    rasterize_line(230, 170, 280, 170, 0, 0, 0);
 }
 
 
