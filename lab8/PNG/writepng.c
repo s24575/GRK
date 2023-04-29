@@ -9,6 +9,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdarg.h>
+#include <string.h>
 
 #define PNG_DEBUG 3
 #include <png.h>
@@ -122,7 +123,6 @@ void write_pixel(int x, int y, png_byte cr, png_byte cg, png_byte cb){
 }
 
 void rasterize_line(int x1, int y1, int x2, int y2, png_byte cr, png_byte cg, png_byte cb){
-
     if(x2 > x1 && y2 >= y1 && y2 - y1 <= x2 - x1){
         int m = 2 * (y2 - y1);
         int b = 0;
@@ -187,7 +187,12 @@ void rasterize_circle(int x, int y, int r, png_byte cr, png_byte cg, png_byte cb
     int i = 0;
     int j = r;
     int f = 5 - 4 * r;
+
     write_pixel(x + i, y + j, cr, cg, cb);
+    write_pixel(y - j, x + i, cr, cg, cb);
+    write_pixel(x - i, y - j, cr, cg, cb);
+    write_pixel(y + j, x - i, cr, cg, cb);
+
     while(i < j){
         if(f > 0){
             f += 8 * i - 8 * j + 20;
@@ -207,33 +212,30 @@ void rasterize_circle(int x, int y, int r, png_byte cr, png_byte cg, png_byte cb
     }
 }
 
-void fill_with_color_helper(int x, int y, png_byte or, png_byte og, png_byte ob, png_byte cr, png_byte cg, png_byte cb){
-    if(!(0 <= x && x < WIDTH && 0 <= y && y < HEIGHT))
-        return;
+png_byte target_color[3];
+png_byte replace_color[3];
 
-    png_byte* pixel = &(row_pointers[y][x*3]);
-    png_byte fr = pixel[0];
-    png_byte fg = pixel[1];
-    png_byte fb = pixel[2];
+void fill_with_color_helper(int x, int y){
+    write_pixel(x, y, replace_color[0], replace_color[1], replace_color[2]);
 
-    if(!(fr == or && fg == og && fb == ob) || (fb == cb && fr == cr && fg == cg))
-        return;
-
-    write_pixel(x, y, cr, cg, cb);
-
-    fill_with_color_helper(x, y + 1, or, og, ob, cr, cg, cb);
-    fill_with_color_helper(x + 1, y, or, og, ob, cr, cg, cb);
-    fill_with_color_helper(x, y - 1, or, og, ob, cr, cg, cb);
-    fill_with_color_helper(x - 1, y, or, og, ob, cr, cg, cb);
+    if(y < HEIGHT - 1 && !memcmp(target_color, &(row_pointers[y + 1][x*3]), 3)) fill_with_color_helper(x, y + 1);
+    if(x < WIDTH - 1 && !memcmp(target_color, &(row_pointers[y][(x+1)*3]), 3)) fill_with_color_helper(x + 1, y);
+    if(y > 0 && !memcmp(target_color, &(row_pointers[y - 1][x*3]), 3)) fill_with_color_helper(x, y - 1);
+    if(x > 0 && !memcmp(target_color, &(row_pointers[y][(x-1)*3]), 3)) fill_with_color_helper(x - 1, y);
 }
 
 void fill_with_color(int x, int y, png_byte cr, png_byte cg, png_byte cb){
-    png_byte* pixel = &(row_pointers[y][x*3]);
-    png_byte or = pixel[0];
-    png_byte og = pixel[1];
-    png_byte ob = pixel[2];
+    png_bytep pixel = &(row_pointers[y][x*3]);
+    memcpy(target_color, pixel, 3);
 
-    fill_with_color_helper(x, y, or, og, ob, cr, cg, cb);
+    replace_color[0] = cr;
+    replace_color[1] = cg;
+    replace_color[2] = cb;
+
+    if(!memcmp(target_color, replace_color, 3))
+        return;
+
+    fill_with_color_helper(x, y);
 }
 
 void process_file(void)
@@ -284,9 +286,16 @@ void process_file(void)
     rasterize_line(230, 170, 280, 170, 0, 0, 0);
 
     // circle
-    rasterize_circle(200, 200, 100, 0, 0, 0);
+    rasterize_circle(200, 200, 150, 0, 0, 0);
 
+    // red fill
     fill_with_color(200, 200, 255, 0, 0);
+
+    // blue G fill
+    fill_with_color(125, 200, 0, 0, 255);
+
+    // blue S fill
+    fill_with_color(270, 200, 0, 0, 255);
 }
 
 
