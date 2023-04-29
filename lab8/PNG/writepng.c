@@ -187,21 +187,58 @@ void rasterize_circle(int x, int y, int r, png_byte cr, png_byte cg, png_byte cb
     int i = 0;
     int j = r;
     int f = 5 - 4 * r;
-    write_pixel(i, j, cr, cg, cb);
+    write_pixel(x + i, y + j, cr, cg, cb);
     while(i < j){
         if(f > 0){
-            f += 8 * i + 8 * j + 20;
+            f += 8 * i - 8 * j + 20;
             j--;
         } else{
             f += 8 * i + 12;
         }
         i++;
-        write_pixel(i, j, cr, cg, cb);
+        write_pixel(x + i, y + j, cr, cg, cb); // ++
+        write_pixel(y + j, x + i, cr, cg, cb); // f++
+        write_pixel(y + j, x - i, cr, cg, cb); // +-
+        write_pixel(x + i, y - j, cr, cg, cb); // f+-
+        write_pixel(x - i, y - j, cr, cg, cb); // --
+        write_pixel(y - j, x - i, cr, cg, cb); // f--
+        write_pixel(x - i, y + j, cr, cg, cb); // -+
+        write_pixel(y - j, x + i, cr, cg, cb); // f--
     }
+}
+
+void fill_with_color_helper(int x, int y, png_byte or, png_byte og, png_byte ob, png_byte cr, png_byte cg, png_byte cb){
+    if(!(0 <= x && x < WIDTH && 0 <= y && y < HEIGHT))
+        return;
+
+    png_byte* pixel = &(row_pointers[y][x*3]);
+    png_byte fr = pixel[0];
+    png_byte fg = pixel[1];
+    png_byte fb = pixel[2];
+
+    if(!(fr == or && fg == og && fb == ob) || (fb == cb && fr == cr && fg == cg))
+        return;
+
+    write_pixel(x, y, cr, cg, cb);
+
+    fill_with_color_helper(x, y + 1, or, og, ob, cr, cg, cb);
+    fill_with_color_helper(x + 1, y, or, og, ob, cr, cg, cb);
+    fill_with_color_helper(x, y - 1, or, og, ob, cr, cg, cb);
+    fill_with_color_helper(x - 1, y, or, og, ob, cr, cg, cb);
+}
+
+void fill_with_color(int x, int y, png_byte cr, png_byte cg, png_byte cb){
+    png_byte* pixel = &(row_pointers[y][x*3]);
+    png_byte or = pixel[0];
+    png_byte og = pixel[1];
+    png_byte ob = pixel[2];
+
+    fill_with_color_helper(x, y, or, og, ob, cr, cg, cb);
 }
 
 void process_file(void)
 {
+    // gray background
 	for (y=0; y<height; y++) {
 		png_byte* row = row_pointers[y];
 		for (x=0; x<width; x++) {
@@ -245,6 +282,11 @@ void process_file(void)
     rasterize_line(230, 195, 270, 195, 0, 0, 0);
     rasterize_line(230, 195, 230, 170, 0, 0, 0);
     rasterize_line(230, 170, 280, 170, 0, 0, 0);
+
+    // circle
+    rasterize_circle(200, 200, 100, 0, 0, 0);
+
+    fill_with_color(200, 200, 255, 0, 0);
 }
 
 
