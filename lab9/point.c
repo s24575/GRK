@@ -24,6 +24,12 @@ int num_components;
 int quality = 75;
 J_COLOR_SPACE color_space;
 
+int clamp(int num, int min, int max){
+	if(num > max) return max;
+	if(num < min) return min;
+	return num;
+}
+
 void negate(){
   int x, y;
   if (color_space != JCS_RGB)  return;
@@ -40,7 +46,7 @@ void negate(){
 }    
 
 void contrast(double k){
-	int x, y;
+  int x, y, result;
   if (color_space != JCS_RGB)  return;
 
   for (y=0; y<height; y++) {
@@ -48,88 +54,42 @@ void contrast(double k){
     for (x=0; x<width; x++) {
       JSAMPROW ptr = &(row[x*3]);
 
-	  int result = (ptr[0] - 127) * k + 127;
-	  if(result > 255){
-		ptr[0] = 255;
-	  }
-	  else if(result < 0){
-		ptr[0] = 0;
-	  }
-	   else{
-		ptr[0] = result;
-	  }
+	  result = (ptr[0] - 127) * k + 127;
+	  ptr[0] = clamp(result, 0, 255);
 
 	  result = (ptr[1] - 127) * k + 127;
-	  if(result > 255){
-		ptr[1] = 255;
-	  }
-	  else if(result < 0){
-		ptr[1] = 0;
-	  }
-	   else{
-		ptr[1] = result;
-	  }
+	  ptr[1] = clamp(result, 0, 255);
 
 	  result = (ptr[2] - 127) * k + 127;
-	  if(result > 255){
-		ptr[2] = 255;
-	  }
-	  else if(result < 0){
-		ptr[2] = 0;
-	  }
-	   else{
-		ptr[2] = result;
-	  }
+	  ptr[2] = clamp(result, 0, 255);
     }
   }
 }
 
 void brightness(double k){
-	int x, y;
+  int x, y, result;
+  double f = k / 100;
   if (color_space != JCS_RGB)  return;
 
   for (y=0; y<height; y++) {
     JSAMPROW row = row_pointers[y];
     for (x=0; x<width; x++) {
       JSAMPROW ptr = &(row[x*3]);
-	  double f = k / 100;
-	  int result = ptr[0] + f * ptr[0];
-	  if(result > 255){
-		ptr[0] = 255;
-	  }
-	  else if(result < 0){
-		ptr[0] = 0;
-	  }
-	   else{
-		ptr[0] = result;
-	  }
+	  result = ptr[0] + f * ptr[0];
+	  ptr[0] = clamp(result, 0, 255);
+
 	  result = ptr[1] + f * ptr[1];
-	  if(result > 255){
-		ptr[1] = 255;
-	  }
-	  else if(result < 0){
-		ptr[1] = 0;
-	  }
-	   else{
-		ptr[1] = result;
-	  }
+	  ptr[1] = clamp(result, 0, 255);
+
 	  result = ptr[2] + f * ptr[2];
-	  if(result > 255){
-		ptr[2] = 255;
-	  }
-	  else if(result < 0){
-		ptr[2] = 0;
-	  }
-	   else{
-		ptr[2] = result;
-	  }
+	  ptr[2] = clamp(result, 0, 255);
 	}
   }
 }
 
 void process_file(){
     if(strcmp(filter, "negate") ==0 ){
-            negate();
+        negate();
     }
     else if(strcmp(filter, "contrast") ==0 ){
 		contrast(times);
