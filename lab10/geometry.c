@@ -32,8 +32,8 @@ void flip(const char* flip){
   if(strcmp(flip, "x") == 0){
   for (y=0; y<height; y++) {
     JSAMPROW row = row_pointers[y];
+    JSAMPROW tmp = (JSAMPROW)malloc(3 * sizeof(JSAMPLE));
     for (x=0; x<width / 2; x++) {
-      JSAMPROW tmp;
       JSAMPROW left = &(row[x*3]);
       JSAMPROW right = &(row[(width - 1 - x)*3]);
 	//   tmp = right;
@@ -49,13 +49,14 @@ void flip(const char* flip){
 	  left[1] = tmp[1];
 	  left[2] = tmp[2];
     }
+	free(tmp);
   }
   } else if(strcmp(flip, "y") == 0){
     for (y=0; y<height/2; y++) {
     JSAMPROW top_row = row_pointers[y];
     JSAMPROW bottom_row = row_pointers[height - 1 - y];
+    JSAMPROW tmp = (JSAMPROW)malloc(3 * sizeof(JSAMPLE));
     for (x=0; x<width; x++) {
-      JSAMPROW tmp;
       JSAMPROW left = &(top_row[x*3]);
       JSAMPROW right = &(bottom_row[x*3]);
 	//   tmp = right;
@@ -71,6 +72,7 @@ void flip(const char* flip){
 	  left[1] = tmp[1];
 	  left[2] = tmp[2];
     }
+	free(tmp);
   }
   } else {
 	printf("Incorrect flip argument: %s\n", flip);
