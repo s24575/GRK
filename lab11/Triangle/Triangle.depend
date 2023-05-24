@@ -1,0 +1,66 @@
+# depslib dependency file v1.0
+1684923015 source:c:\msys64\home\s24575\triangle\main.cpp
+	"window.h"
+	<iostream>
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+
+1684925761 c:\msys64\home\s24575\triangle\window.h
+	<cstring>
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	"triangle.h"
+	"star.h"
+	"circle.h"
+	"program.h"
+
+1684923014 c:\msys64\home\s24575\triangle\triangle.h
+	<GL/glew.h>
+	"program.h"
+
+1684923014 c:\msys64\home\s24575\triangle\program.h
+	<GL/glew.h>
+
+1684923014 source:c:\msys64\home\s24575\triangle\glerror.cpp
+	"glerror.h"
+	<iostream>
+
+1684923014 c:\msys64\home\s24575\triangle\glerror.h
+	<GL/glew.h>
+
+1684923014 source:c:\msys64\home\s24575\triangle\program.cpp
+	"program.h"
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	<iostream>
+	<cstdlib>
+
+1684927076 source:c:\msys64\home\s24575\triangle\window.cpp
+	"window.h"
+	<iostream>
+	<cstdlib>
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	"glerror.h"
+
+1684923622 c:\msys64\home\s24575\triangle\star.h
+	<GL/glew.h>
+	"program.h"
+
+1684923262 source:c:\msys64\home\s24575\triangle\triangle.cpp
+	"triangle.h"
+	<GL/glew.h>
+
+1684925081 source:c:\msys64\home\s24575\triangle\star.cpp
+	"star.h"
+	<GL/glew.h>
+
+1684927445 c:\msys64\home\s24575\triangle\circle.h
+	<GL/glew.h>
+	"program.h"
+
+1684927705 source:c:\msys64\home\s24575\triangle\circle.cpp
+	"circle.h"
+	<GL/glew.h>
+	<cmath>
+
