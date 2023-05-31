@@ -1,0 +1,91 @@
+# depslib dependency file v1.0
+1685528709 source:c:\msys64\home\s24575\cube\baseprogram.cpp
+	"baseprogram.h"
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	<iostream>
+	<fstream>
+	<cstring>
+	<cstdlib>
+
+1685528709 c:\msys64\home\s24575\cube\baseprogram.h
+	<GL/glew.h>
+	"matma.h"
+
+1685528709 c:\msys64\home\s24575\cube\matma.h
+
+1685528709 source:c:\msys64\home\s24575\cube\cameraprogram.cpp
+	<iostream>
+	"cameraprogram.h"
+	<GLFW/glfw3.h>
+
+1685528709 c:\msys64\home\s24575\cube\cameraprogram.h
+	<GL/glew.h>
+	"baseprogram.h"
+	"matma.h"
+
+1685532333 source:c:\msys64\home\s24575\cube\cube.cpp
+	<GL/glew.h>
+	<iostream>
+	"cube.h"
+	"vertices.h"
+
+1685531919 c:\msys64\home\s24575\cube\cube.h
+	<GL/glew.h>
+	"indexmodel.h"
+	"movablemodel.h"
+	"modelprogram.h"
+	"matma.h"
+
+1685528709 c:\msys64\home\s24575\cube\indexmodel.h
+	<GL/glew.h>
+
+1685528709 c:\msys64\home\s24575\cube\movablemodel.h
+	"matma.h"
+
+1685528709 c:\msys64\home\s24575\cube\modelprogram.h
+	"cameraprogram.h"
+
+1685528709 c:\msys64\home\s24575\cube\vertices.h
+
+1685528709 source:c:\msys64\home\s24575\cube\glerror.cpp
+	"glerror.h"
+	<iostream>
+
+1685528709 c:\msys64\home\s24575\cube\glerror.h
+	<GL/glew.h>
+
+1685528709 source:c:\msys64\home\s24575\cube\indexmodel.cpp
+	"indexmodel.h"
+
+1685528709 source:c:\msys64\home\s24575\cube\main.cpp
+	"window.h"
+	<iostream>
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+
+1685529615 c:\msys64\home\s24575\cube\window.h
+	<cstring>
+	<ctime>
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	"cube.h"
+	"cameraprogram.h"
+	"matma.h"
+
+1685528709 source:c:\msys64\home\s24575\cube\matma.cpp
+	"matma.h"
+	<cmath>
+	<iostream>
+
+1685528709 source:c:\msys64\home\s24575\cube\modelprogram.cpp
+	"modelprogram.h"
+
+1685532345 source:c:\msys64\home\s24575\cube\window.cpp
+	"window.h"
+	<iostream>
+	<cstdlib>
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	"glerror.h"
+
