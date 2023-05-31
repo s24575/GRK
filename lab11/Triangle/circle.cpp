@@ -1,9 +1,11 @@
 #include "circle.h"
 
 #include <GL/glew.h>
+
+#define _USE_MATH_DEFINES
 #include <cmath>
 
-constexpr int vertex_count = 30;
+constexpr int vertex_count = 32;
 
 void Circle::Initialize(){
     const int stride = 4;
@@ -13,17 +15,19 @@ void Circle::Initialize(){
 
     const float radius = 0.5f;
 
-    const float angle = 360.0f / vertex_count;
+    const float angle = 2 * M_PI / vertex_count;
 
     for(int i = 0; i < vertex_count; i++){
-        kVertices[stride * i] = std::sin(i * angle) * radius;
-        kVertices[stride * i + 1] = std::cos(i * angle) * radius;
+        float phi = i * angle;
+
+        kVertices[stride * i] = std::sin(phi) * radius;
+        kVertices[stride * i + 1] = std::cos(phi) * radius;
         kVertices[stride * i + 2] = 0.0f;
         kVertices[stride * i + 3] = 1.0f;
 
         kColors[stride * i] = 1.0f;
         kColors[stride * i + 1] = 1.0f;
-        kColors[stride * i + 2] = 1.0f;
+        kColors[stride * i + 2] = 0.0f;
         kColors[stride * i + 3] = 1.0f;
     }
 
