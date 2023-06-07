@@ -129,19 +129,27 @@ void Window::KeyEvent(int key, int /*scancode*/, int action, int /*mods*/){
                 glfwSetWindowShouldClose(window_, GLFW_TRUE);
             break;
             case GLFW_KEY_LEFT:
-              cube_.Left();
+                cube_.Left();
             break;
             case GLFW_KEY_RIGHT:
-              cube_.Right();
+                cube_.Right();
             break;
             case GLFW_KEY_UP:
-              cube_.Up();
+                cube_.Up();
             break;
             case GLFW_KEY_DOWN:
-              cube_.Down();
+                cube_.Down();
             break;
             case GLFW_KEY_SPACE:
-              cube_.ToggleAnimated();
+                cube_.ToggleAnimated();
+            break;
+            case GLFW_KEY_HOME:
+                view_matrix_.Translate(0, 0, 0.1f);
+                SetViewMatrix();
+            break;
+            case GLFW_KEY_END:
+                view_matrix_.Translate(0, 0, -0.1f);
+                SetViewMatrix();
             break;
             default:
             break;
@@ -150,16 +158,24 @@ void Window::KeyEvent(int key, int /*scancode*/, int action, int /*mods*/){
     else if(action == GLFW_REPEAT){
         switch (key){
             case GLFW_KEY_LEFT:
-              cube_.Left();
+                cube_.Left();
             break;
             case GLFW_KEY_RIGHT:
-              cube_.Right();
+                cube_.Right();
             break;
             case GLFW_KEY_UP:
-              cube_.Up();
+                cube_.Up();
             break;
             case GLFW_KEY_DOWN:
-              cube_.Down();
+                cube_.Down();
+            break;
+            case GLFW_KEY_HOME:
+                view_matrix_.Translate(0, 0, 0.1f);
+                SetViewMatrix();
+            break;
+            case GLFW_KEY_END:
+                view_matrix_.Translate(0, 0, -0.1f);
+                SetViewMatrix();
             break;
             default:
             break;
