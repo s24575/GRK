@@ -1,0 +1,130 @@
+# depslib dependency file v1.0
+1686132048 source:c:\msys64\home\s24575\torus\baseprogram.cpp
+	"baseprogram.h"
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	<iostream>
+	<fstream>
+	<cstring>
+	<cstdlib>
+
+1686132048 c:\msys64\home\s24575\torus\baseprogram.h
+	<GL/glew.h>
+	"matma.h"
+
+1686132048 c:\msys64\home\s24575\torus\matma.h
+
+1686132048 source:c:\msys64\home\s24575\torus\cameraprogram.cpp
+	<iostream>
+	"cameraprogram.h"
+	<GLFW/glfw3.h>
+
+1686132048 c:\msys64\home\s24575\torus\cameraprogram.h
+	<GL/glew.h>
+	"baseprogram.h"
+	"matma.h"
+
+1686132049 source:c:\msys64\home\s24575\torus\glerror.cpp
+	"glerror.h"
+	<iostream>
+
+1686132048 c:\msys64\home\s24575\torus\glerror.h
+	<GL/glew.h>
+
+1686132049 source:c:\msys64\home\s24575\torus\indexmodel.cpp
+	"indexmodel.h"
+
+1686132048 c:\msys64\home\s24575\torus\indexmodel.h
+	<GL/glew.h>
+
+1686132049 source:c:\msys64\home\s24575\torus\main.cpp
+	"window.h"
+	<iostream>
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+
+1686135224 c:\msys64\home\s24575\torus\window.h
+	<cstring>
+	<ctime>
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	"torus.h"
+	"plane.h"
+	"texturecameraprogram.h"
+	"matma.h"
+	"texture.h"
+
+1686132048 c:\msys64\home\s24575\torus\torus.h
+	"indexmodel.h"
+	"movablemodel.h"
+	"texturemodel.h"
+	"matma.h"
+	"texturecameraprogram.h"
+
+1686132652 c:\msys64\home\s24575\torus\movablemodel.h
+	"matma.h"
+
+1686134324 c:\msys64\home\s24575\torus\texturemodel.h
+	<GL/glew.h>
+
+1686132048 c:\msys64\home\s24575\torus\texturecameraprogram.h
+	<GL/glew.h>
+	"matma.h"
+	"modelprogram.h"
+
+1686132048 c:\msys64\home\s24575\torus\modelprogram.h
+	"cameraprogram.h"
+
+1686132048 c:\msys64\home\s24575\torus\plane.h
+	"indexmodel.h"
+	"movablemodel.h"
+	"texturemodel.h"
+	"matma.h"
+	"texturecameraprogram.h"
+
+1686132048 c:\msys64\home\s24575\torus\texture.h
+	<GL/glew.h>
+
+1686132049 source:c:\msys64\home\s24575\torus\matma.cpp
+	"matma.h"
+	<cmath>
+	<iostream>
+
+1686132049 source:c:\msys64\home\s24575\torus\modelprogram.cpp
+	"modelprogram.h"
+
+1686136762 source:c:\msys64\home\s24575\torus\plane.cpp
+	"plane.h"
+	"vertices.h"
+
+1686132048 c:\msys64\home\s24575\torus\vertices.h
+
+1686132049 source:c:\msys64\home\s24575\torus\texture.cpp
+	"texture.h"
+	<fstream>
+	<iostream>
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	<stdint.h>
+
+1686132049 source:c:\msys64\home\s24575\torus\texturecameraprogram.cpp
+	"texturecameraprogram.h"
+	<GL/glew.h>
+	<iostream>
+	<fstream>
+	<cstdlib>
+
+1686134592 source:c:\msys64\home\s24575\torus\torus.cpp
+	"torus.h"
+	"vertices.h"
+	<iostream>
+	<cmath>
+
+1686136737 source:c:\msys64\home\s24575\torus\window.cpp
+	"window.h"
+	<iostream>
+	<cstdlib>
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	"glerror.h"
+
