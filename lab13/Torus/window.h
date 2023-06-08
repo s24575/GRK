@@ -34,7 +34,6 @@ class Window{
     TextureCameraProgram  program_;
 
     Texture cosmos_texture_;
-    Texture color_texture_;
     Texture saturn_texture_;
     Texture saturn_texture_prim_;
 

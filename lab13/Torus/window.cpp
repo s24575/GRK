@@ -12,7 +12,6 @@ const char* kVertexShader="TextureShader.vertex.glsl";
 const char* kFragmentShader="TextureShader.fragment.glsl";
 
 const char* kCosmosTexureFile="cosmos.tga";
-const char* kColorTexureFile="texture.tga";
 const char* kSaturnTexureFile="saturnmap.tga";
 const char* kSaturnTexurePrimFile="tethys_jpl_8k.tga";
 
@@ -112,7 +111,6 @@ void Window::InitGlewOrDie(){
 }
 
 void Window::InitTextures(){
-    color_texture_.Initialize(kColorTexureFile);
     cosmos_texture_.Initialize(kCosmosTexureFile);
     saturn_texture_.Initialize(kSaturnTexureFile);
     saturn_texture_prim_.Initialize(kSaturnTexurePrimFile);
