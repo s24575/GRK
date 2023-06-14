@@ -1,0 +1,193 @@
+# depslib dependency file v1.0
+1686736998 source:c:\msys64\home\s24575\lighting\baseprogram.cpp
+	"baseprogram.h"
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	<iostream>
+	<fstream>
+	<cstring>
+	<cstdlib>
+
+1686736998 c:\msys64\home\s24575\lighting\baseprogram.h
+	<GL/glew.h>
+	"matma.h"
+
+1686736998 c:\msys64\home\s24575\lighting\matma.h
+	<GL/glew.h>
+
+1686736998 source:c:\msys64\home\s24575\lighting\cameraprogram.cpp
+	<iostream>
+	"cameraprogram.h"
+	<GLFW/glfw3.h>
+
+1686736998 c:\msys64\home\s24575\lighting\cameraprogram.h
+	<GL/glew.h>
+	"baseprogram.h"
+	"matma.h"
+
+1686736998 source:c:\msys64\home\s24575\lighting\glerror.cpp
+	"glerror.h"
+	<iostream>
+
+1686736998 c:\msys64\home\s24575\lighting\glerror.h
+	<GL/glew.h>
+
+1686736998 source:c:\msys64\home\s24575\lighting\indexmodel.cpp
+	"indexmodel.h"
+
+1686736998 c:\msys64\home\s24575\lighting\indexmodel.h
+	<GL/glew.h>
+
+1686736998 source:c:\msys64\home\s24575\lighting\lightprogram.cpp
+	"lightprogram.h"
+	<GL/glew.h>
+	<iostream>
+	<fstream>
+	<cstdlib>
+
+1686736998 c:\msys64\home\s24575\lighting\lightprogram.h
+	<GL/glew.h>
+	"matma.h"
+	"material.h"
+	"texturecameraprogram.h"
+
+1686736998 c:\msys64\home\s24575\lighting\material.h
+	<GL/glew.h>
+
+1686736998 c:\msys64\home\s24575\lighting\texturecameraprogram.h
+	<GL/glew.h>
+	"matma.h"
+	"modelprogram.h"
+
+1686736998 c:\msys64\home\s24575\lighting\modelprogram.h
+	"cameraprogram.h"
+
+1686736998 source:c:\msys64\home\s24575\lighting\main.cpp
+	"window.h"
+	<iostream>
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+
+1686739190 c:\msys64\home\s24575\lighting\window.h
+	<cstring>
+	<ctime>
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	"tori.h"
+	"plane.h"
+	"pointlightprogram.h"
+	"sunlightprogram.h"
+	"spotlightprogram.h"
+	"matma.h"
+	"texture.h"
+
+1686736998 c:\msys64\home\s24575\lighting\tori.h
+	<GL/glew.h>
+	"lightprogram.h"
+	"movablemodel.h"
+	"lightablemodel.h"
+	"materialmodel.h"
+	"texturemodel.h"
+	"indexmodel.h"
+	"matma.h"
+
+1686738993 c:\msys64\home\s24575\lighting\movablemodel.h
+	"matma.h"
+
+1686739003 c:\msys64\home\s24575\lighting\lightablemodel.h
+	"matma.h"
+
+1686739032 c:\msys64\home\s24575\lighting\materialmodel.h
+	<GL/glew.h>
+	"material.h"
+
+1686740072 c:\msys64\home\s24575\lighting\texturemodel.h
+	<GL/glew.h>
+
+1686132048 c:\msys64\home\s24575\lighting\plane.h
+	"indexmodel.h"
+	"movablemodel.h"
+	"texturemodel.h"
+	"matma.h"
+	"texturecameraprogram.h"
+
+1686736998 c:\msys64\home\s24575\lighting\vertices.h
+
+1686736998 c:\msys64\home\s24575\lighting\pointlightprogram.h
+	<GL/glew.h>
+	"lightprogram.h"
+	"light.h"
+
+1686736998 c:\msys64\home\s24575\lighting\light.h
+	<GL/glew.h>
+
+1686736998 c:\msys64\home\s24575\lighting\sunlightprogram.h
+	<GL/glew.h>
+	"lightprogram.h"
+	"light.h"
+
+1686736998 c:\msys64\home\s24575\lighting\spotlightprogram.h
+	"lightprogram.h"
+	"light.h"
+
+1686736998 c:\msys64\home\s24575\lighting\texture.h
+	<GL/glew.h>
+
+1686736998 source:c:\msys64\home\s24575\lighting\matma.cpp
+	"matma.h"
+	<cmath>
+	<iostream>
+
+1686736998 source:c:\msys64\home\s24575\lighting\modelprogram.cpp
+	"modelprogram.h"
+
+1686136762 source:c:\msys64\home\s24575\lighting\plane.cpp
+	"plane.h"
+	"vertices.h"
+
+1686736998 source:c:\msys64\home\s24575\lighting\pointlightprogram.cpp
+	"pointlightprogram.h"
+
+1686736998 source:c:\msys64\home\s24575\lighting\spotlightprogram.cpp
+	"spotlightprogram.h"
+	"cmath"
+
+1686736998 source:c:\msys64\home\s24575\lighting\sunlightprogram.cpp
+	"sunlightprogram.h"
+
+1686736998 source:c:\msys64\home\s24575\lighting\texture.cpp
+	"texture.h"
+	<fstream>
+	<iostream>
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	<stdint.h>
+
+1686736998 source:c:\msys64\home\s24575\lighting\texturecameraprogram.cpp
+	"texturecameraprogram.h"
+	<GL/glew.h>
+	<iostream>
+	<fstream>
+	<cstdlib>
+
+1686736998 source:c:\msys64\home\s24575\lighting\texturemodel.cpp
+	"texturemodel.h"
+
+1686741188 source:c:\msys64\home\s24575\lighting\tori.cpp
+	"tori.h"
+	<GL/glew.h>
+	<iostream>
+	<cmath>
+	"movablemodel.h"
+	"vertices.h"
+
+1686740824 source:c:\msys64\home\s24575\lighting\window.cpp
+	"window.h"
+	<iostream>
+	<cstdlib>
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	"glerror.h"
+	"material.h"
+	"light.h"
+
