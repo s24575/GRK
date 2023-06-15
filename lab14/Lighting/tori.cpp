@@ -20,32 +20,22 @@ void Tori::Move(GLfloat delta_t){
     if(angle_>360) angle_ -= 360;
     if(angle_<-360) angle_ += 360;
 
-    model_matrix_.SetUnitMatrix();
-    model_matrix_.RotateAboutX(angle_);
-    model_matrix_.RotateAboutY(angle_);
-    normal_matrix_.SetUnitMatrix();
-    normal_matrix_.RotateAboutY(-angle_);
-    normal_matrix_.RotateAboutX(-angle_);
-
     model_matrix_prim_.SetUnitMatrix();
-    model_matrix_prim_.Scale(0.2, 0.2, 0.2);
-    model_matrix_prim_.RotateAboutX(2*angle_);
-    model_matrix_prim_.Translate(-3, 0, 2);
+    model_matrix_prim_.Scale(0.4, 0.4, 0.4);
+    model_matrix_prim_.RotateAboutY(angle_);
+    model_matrix_prim_.Translate(-5, 0, 0);
     model_matrix_prim_.RotateAboutY(angle_);
     normal_matrix_prim_.SetUnitMatrix();
-    normal_matrix_prim_.RotateAboutY(-angle_);
-    normal_matrix_prim_.RotateAboutX(-2*angle_);
-    normal_matrix_prim_.Scale(5.0, 5.0, 5.0);
+    normal_matrix_prim_.RotateAboutY(2.0f * -angle_);
 
     model_matrix_prim_prim_.SetUnitMatrix();
-    model_matrix_prim_prim_.Scale(0.4, 0.4, 0.4);
-    model_matrix_prim_prim_.RotateAboutX(3*angle_);
-    model_matrix_prim_prim_.Translate(-5, 0, 1);
-    model_matrix_prim_prim_.RotateAboutY(2*angle_);
+    model_matrix_prim_prim_.Scale(0.1, 0.1, 0.1);
+    model_matrix_prim_prim_.Translate(-1.5, 0, 0);
+    model_matrix_prim_prim_.RotateAboutY(angle_);
+    model_matrix_prim_prim_.Translate(-5, 0, 0);
+    model_matrix_prim_prim_.RotateAboutY(angle_);
     normal_matrix_prim_prim_.SetUnitMatrix();
-    normal_matrix_prim_prim_.RotateAboutY(-angle_);
-    normal_matrix_prim_prim_.RotateAboutX(-2*angle_);
-    normal_matrix_prim_prim_.Scale(3.0, 3.0, 3.0);
+    normal_matrix_prim_prim_.RotateAboutY(2 * -angle_);
 }
 
 
@@ -68,12 +58,9 @@ void Tori::Initialize(int n, int m, GLfloat R, GLfloat r){
     NormalTextureVertex * vertices=new NormalTextureVertex[(m_ + 1)*(n_ + 1)];
     int i,j;
     for (i=0;i<=n_;i++) {
-      GLfloat phi=(2*M_PI/(float)n_*i) / 2 - M_PI/2;
+      GLfloat phi = M_PI / (float)n_ * i - M_PI / 2;
       for (j=0;j<=m_;j++){
         GLfloat theta=2*M_PI/(float)m_*j;
-        //vertices[i*(m_ + 1)+j].position[0]=(R + r*cos(phi))*sin(theta);
-        //vertices[i*(m_ + 1)+j].position[1]=r*sin(phi);
-        //vertices[i*(m_ + 1)+j].position[2]=(R + r*cos(phi))*cos(theta);
         vertices[i*(m_ + 1)+j].position[0]=(R*cos(phi))*sin(theta);
         vertices[i*(m_ + 1)+j].position[1]=R*sin(phi);
         vertices[i*(m_ + 1)+j].position[2]=(R*cos(phi))*cos(theta);

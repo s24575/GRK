@@ -6,9 +6,8 @@ void Plane::Initialize(int m, int n){
     m_=m;
     n_=n;
 
-    //model_matrix_.Translate(0, -4, 0);
-    model_matrix_.Translate(0, -40, 0);
-    model_matrix_.RotateAboutX(80);
+    model_matrix_.Translate(0, -28, 0);
+    model_matrix_.RotateAboutX(90);
 
     TextureVertex vertices[4]={
 
