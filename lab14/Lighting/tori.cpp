@@ -21,21 +21,25 @@ void Tori::Move(GLfloat delta_t){
     if(angle_<-360) angle_ += 360;
 
     model_matrix_prim_.SetUnitMatrix();
-    model_matrix_prim_.Scale(0.4, 0.4, 0.4);
+    model_matrix_prim_.Scale(0.4f, 0.4f, 0.4f);
     model_matrix_prim_.RotateAboutY(angle_);
-    model_matrix_prim_.Translate(-5, 0, 0);
+    model_matrix_prim_.Translate(-5.0f, 0.0f, 0.0f);
     model_matrix_prim_.RotateAboutY(angle_);
     normal_matrix_prim_.SetUnitMatrix();
     normal_matrix_prim_.RotateAboutY(2.0f * -angle_);
+    normal_matrix_prim_.Scale(2.5f, 2.5f, 2.5f);
+
+
 
     model_matrix_prim_prim_.SetUnitMatrix();
-    model_matrix_prim_prim_.Scale(0.1, 0.1, 0.1);
-    model_matrix_prim_prim_.Translate(-1.5, 0, 0);
-    model_matrix_prim_prim_.RotateAboutY(3 * angle_);
-    model_matrix_prim_prim_.Translate(-5, 0, 0);
+    model_matrix_prim_prim_.Scale(0.1f, 0.1f, 0.1f);
+    model_matrix_prim_prim_.Translate(-1.5f, 0.0f, 0.0f);
+    model_matrix_prim_prim_.RotateAboutY(3.0f * angle_);
+    model_matrix_prim_prim_.Translate(-5.0f, 0.0f, 0.0f);
     model_matrix_prim_prim_.RotateAboutY(angle_);
     normal_matrix_prim_prim_.SetUnitMatrix();
-    normal_matrix_prim_prim_.RotateAboutY(4 * -angle_);
+    normal_matrix_prim_prim_.RotateAboutY(4.0f * -angle_);
+    normal_matrix_prim_prim_.Scale(10.0f, 10.0f, 10.0f);
 }
 
 

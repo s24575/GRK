@@ -123,7 +123,7 @@ void Window::Initialize(int major_gl_version, int minor_gl_version){
 
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LESS);
-    glClearColor(0.75f, 0.75f, 0.35f, 0.0f);
+    glClearColor(0.02f, 0.03f, 0.1f, 0.0f);
 
 }
 
