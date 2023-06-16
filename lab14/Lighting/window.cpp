@@ -43,7 +43,7 @@ const Material  kSunMaterial = {
 
 const Material  kYellowMaterial={
     {0.5f, 0.5f, 0.5f, 1.0f}, //Ambient
-    {1.0f, 1.0f, 0.0f, 1.0f}, //Diffuse
+    {0.7f, 0.7f, 0.7f, 1.0f}, //Diffuse
     {0.0f, 0.0f, 0.0f, 1.0f}, //Specular
     {0.0f, 0.0f, 0.0f, 1.0f}, //Emission
     60.0f
@@ -115,7 +115,7 @@ void Window::Initialize(int major_gl_version, int minor_gl_version){
     InitTextures();
     InitModels();
     InitPrograms();
-    view_matrix_.Translate(0, 0, -10);
+    view_matrix_.Translate(0, 0, -11);
     projection_matrix_ = Mat4::CreatePerspectiveProjectionMatrix(60, (float)width_/(float)height_, 0.1f, 100.0f);
     SetViewMatrix();
     SetProjectionMatrix();

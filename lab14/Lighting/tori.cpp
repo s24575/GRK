@@ -31,11 +31,11 @@ void Tori::Move(GLfloat delta_t){
     model_matrix_prim_prim_.SetUnitMatrix();
     model_matrix_prim_prim_.Scale(0.1, 0.1, 0.1);
     model_matrix_prim_prim_.Translate(-1.5, 0, 0);
-    model_matrix_prim_prim_.RotateAboutY(angle_);
+    model_matrix_prim_prim_.RotateAboutY(3 * angle_);
     model_matrix_prim_prim_.Translate(-5, 0, 0);
     model_matrix_prim_prim_.RotateAboutY(angle_);
     normal_matrix_prim_prim_.SetUnitMatrix();
-    normal_matrix_prim_prim_.RotateAboutY(2 * -angle_);
+    normal_matrix_prim_prim_.RotateAboutY(4 * -angle_);
 }
 
 
