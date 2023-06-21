@@ -20,9 +20,9 @@ const char* kSpotLightVertexShader="SpotLight.vertex.glsl";
 const char* kSpotLightFragmentShader="SpotLight.fragment.glsl";
 
 const char* kIceTexureFile="ice.tga";
-const char* kColorTexureFile="texture.tga";
+const char* kColorTexureFile="sun.tga";
 const char* kCosmosTextureFile="cosmos.tga";
-const char* kSaturnTexureFile="download.tga";
+const char* kSaturnTexureFile="saturnmap.tga";
 const char* kSaturnTexurePrimFile="tethys_jpl_8k.tga";
 
 const int kPlaneM = 30;
@@ -33,10 +33,18 @@ const int kTorusN = 30;
 const float kTorusR = 2;
 const float kTorus_r = 0.75;
 
-const Material  kYellowMaterial={
+const Material  kSunMaterial = {
     {0.2f, 0.2f, 0.2f, 1.0f}, //Ambient
     {1.0f, 1.0f, 0.0f, 1.0f}, //Diffuse
     {0.6f, 0.6f, 0.6f, 1.0f}, //Specular
+    {1.0f, 1.0f, 1.0f, 1.0f}, //Emission
+    60.0f
+};
+
+const Material  kYellowMaterial={
+    {0.5f, 0.5f, 0.5f, 1.0f}, //Ambient
+    {0.7f, 0.7f, 0.7f, 1.0f}, //Diffuse
+    {0.0f, 0.0f, 0.0f, 1.0f}, //Specular
     {0.0f, 0.0f, 0.0f, 1.0f}, //Emission
     60.0f
   };
@@ -50,16 +58,16 @@ const Material kBlueMaterial={
   };
 
 const Material  kIceMaterial={
-    {0.4f, 0.4f, 0.4f, 1.0f}, //Ambient
+    {0.7f, 0.7f, 0.7f, 1.0f}, //Ambient
     {0.95f, 0.95f, 0.99f, 1.0f}, //Diffuse
-    {0.99f, 0.99f, 0.99f, 1.0f}, //Specular
+    {0.0f, 0.0f, 0.0f, 1.0f}, //Specular
     {0.0f, 0.0f, 0.0f, 1.0f}, //Emission
     10.0f
   };
 
 const PointLight kPointLight={
-    {0.0f, 7.5f, 3.0f, 1.0f}, //position
-    {0.1f, 0.1f, 0.1f, 1.0f}, //ambient
+    {0.0f, 0.0f, 0.0f, 1.0f}, //position
+    {0.4f, 0.4f, 0.4f, 1.0f}, //ambient
     {1.0f, 1.0f, 1.0f, 1.0f}, //diffuse
     {1.0f, 1.0f, 1.0f, 1.0f}, //specular
     {0.5f, 0.005f, 0.0125f}	//attenuation
@@ -107,7 +115,7 @@ void Window::Initialize(int major_gl_version, int minor_gl_version){
     InitTextures();
     InitModels();
     InitPrograms();
-    view_matrix_.Translate(0, 0, -10);
+    view_matrix_.Translate(0, 0, -11);
     projection_matrix_ = Mat4::CreatePerspectiveProjectionMatrix(60, (float)width_/(float)height_, 0.1f, 100.0f);
     SetViewMatrix();
     SetProjectionMatrix();
@@ -115,7 +123,7 @@ void Window::Initialize(int major_gl_version, int minor_gl_version){
 
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LESS);
-    glClearColor(0.75f, 0.75f, 0.35f, 0.0f);
+    glClearColor(0.02f, 0.03f, 0.1f, 0.0f);
 
 }
 
@@ -183,7 +191,7 @@ void Window::InitModels(){
     tori_.SetTexturePrim(saturn_texture_);
     tori_.SetTexturePrimPrim(saturn_texture_prim_);
     tori_.SetTextureUnit(GL_TEXTURE0);
-    tori_.SetMaterial(kBlueMaterial);
+    tori_.SetMaterial(kSunMaterial);
     tori_.SetMaterialPrim(kYellowMaterial);
     tori_.SetMaterialPrimPrim(kIceMaterial);
 
